@@ -35,7 +35,7 @@
   <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="bg-white shadow overflow-hidden sm:rounded-lg p-4">
       <div class="space-y-6 text-3xl font-bold">
-        Hi User <strong id="userId">ID</strong>, welcome to your dashboard!
+          Hi <strong>User</strong> <strong id="userId">ID</strong>, welcome to your dashboard!
       </div>
     </div>
     <div class="bg-white shadow overflow-hidden sm:rounded-lg p-4">
@@ -69,6 +69,18 @@
           </button>
         </div>
       </form>
+    </div>
+
+    <!-- User Switcher -->
+    <div class="bg-white shadow overflow-hidden sm:rounded-lg p-4 mt-4">
+      <h2 class="text-xl font-semibold mb-2">Switch User</h2>
+      <div class="space-x-2">
+        <a href="/?user=1" target="_blank" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">User 1</a>
+        <a href="/?user=2" target="_blank" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">User 2</a>
+        <a href="/?user=3" target="_blank" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">User 3</a>
+        <a href="/?user=4" target="_blank" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">User 4</a>
+        <a href="/?user=5" target="_blank" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">User 5</a>
+      </div>
     </div>
   </main>
 
@@ -136,10 +148,10 @@
           }
         });
 
-      // receiveing messages
+      // receiving messages
       const eventSource = new EventSource(`/api/notifications/${userId}/stream`);
       // Event listener for new messages
-      eventSource.onmessage = ({data}) => {
+      eventSource.onmessage = ({ data }) => {
         console.log('New message', JSON.parse(data));
         const notificationCount = document.getElementById('notifcationCount');
         // update badge
