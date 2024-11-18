@@ -100,7 +100,7 @@
 
         // Send data to server
         try {
-          const response = await fetch('http://localhost:3000/notifications', {
+          const response = await fetch('/api/notifications', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -123,7 +123,7 @@
 
 
       // fetch all notifications on page load
-      fetch(`http://localhost:3000/notifications/${userId}`)
+      fetch(`/api/notifications/${userId}`)
         .then(response => response.json())
         .then(data => {
           console.log('Notifications', data);
@@ -137,7 +137,7 @@
         });
 
       // receiveing messages
-      const eventSource = new EventSource(`http://localhost:3000/notifications/${userId}/stream`);
+      const eventSource = new EventSource(`/api/notifications/${userId}/stream`);
       // Event listener for new messages
       eventSource.onmessage = ({data}) => {
         console.log('New message', JSON.parse(data));

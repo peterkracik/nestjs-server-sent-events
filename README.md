@@ -12,8 +12,8 @@ This is a simple Nest.js application demonstrating the use of Server-Sent Events
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone git@github.com:peterkracik/nestjs-server-sent-events.git
+   cd nestjs-server-sent-events
    ```
 
 2. Install the dependencies:
@@ -31,14 +31,11 @@ This is a simple Nest.js application demonstrating the use of Server-Sent Events
    ```
 
    The server will run on `http://localhost:3000`.
-
-2. Open the frontend example:
-
-   Open the `index.html` file located in the `app` folder in a web browser. You can specify a user ID using a query parameter (e.g., `index.html?user=1`).
+   Provide a query parameter `user` to the frontend to specify the user ID. For example, `http://localhost:3000/?user=1`.
 
 ## Endpoints
 
-### POST /notifications
+### POST /api/notifications
 
 -   **Description**: Receives a new notification and adds it to the store.
 -   **Request Body**:
@@ -49,13 +46,13 @@ This is a simple Nest.js application demonstrating the use of Server-Sent Events
   }
   ```
 
-### GET /notifications/:id
+### GET /api/notifications/:id
 
 -   **Description**: Returns all notifications for a given user.
 -   **Parameters**:
   - `id`: User ID
 
-### SSE /notifications/:id/stream
+### SSE /api/notifications/:id/stream
 
 -   **Description**: Returns a stream of notifications for a given user.
 -   **Parameters**:
@@ -71,7 +68,7 @@ The frontend is a simple HTML page using Tailwind CSS for styling. It demonstrat
 
 ### How to Use
 
-1. Open the `index.html` file in a browser.
+1. Open the `http://localhost:3000/?user=1` file in a browser.
 2. Use the form to send notifications to a user.
 3. The notification count badge will update in real-time as new notifications are received.
 
